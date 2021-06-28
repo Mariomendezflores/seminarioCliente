@@ -4,18 +4,37 @@ import {View,Text,StyleSheet,TouchableHighlight} from "react-native"
 import MyColors from "./src/color/MyColors";
 import MySimpleButton from "./src/utilComponents/MySimpleButton";
 import vectorIcons from "react-native-vector-icons/FontAwesome"
-class App extends Component
+import { createStackNavigator } from '@react-navigation/stack';
+import Main from "./src/screens/Main";
+import { NavigationContainer } from "@react-navigation/native";
+import Saludo from "./src/screens/Home";
+const Stack = createStackNavigator();
+
+class App extends Component<any,any>
 {
-  onClickButton()
+  constructor(props:any)
   {
-    console.log("prueba de botones");
+    super(props);
   }
   render(){
-    return <View style={styles.mainContainter}>
+    return  <NavigationContainer >
+                <Stack.Navigator >
+                  
+                  <Stack.Screen  name="LOGIN" component={Main}/>
+                  <Stack.Screen name='HOME' component={Saludo}></Stack.Screen>
+                  
+                </Stack.Navigator>
+                
+              </NavigationContainer>
+              
+            
+            
+
+    {/* <View style={styles.mainContainter}>
       <MySimpleButton icoName="user" title="Vendedor" onPress={()=>{this.onClickButton()}}></MySimpleButton>
       <MySimpleButton icoName="user-md" title="Admin" onPress={()=>{this.onClickButton()}}></MySimpleButton>
       
-    </View>
+    </View> */}
   }
 }
 const styles = StyleSheet.create({

@@ -5,21 +5,21 @@ import Icon from "react-native-vector-icons/FontAwesome"
  
 interface MyProps{
     title:string,
-    onPress:Function,
+    inClick:Function,
     icoName:string
 }
 class MySimpleButton extends Component<MyProps, any>
 {
-    constructor(props:any)
+    constructor(props:MyProps)
     {
         super(props);
     }
     clickOnButton()
     {
-        this.props.onPress();
+        this.props.inClick();
     }
     render(){
-        return <TouchableHighlight style={styles.textContainer}> 
+        return <TouchableHighlight style={styles.textContainer} onPress={()=>{this.clickOnButton()}}> 
                     <View style={styles.buttonWithIcon}>
                         <View style={styles.iconContainer}>
                             <Icon name={this.props.icoName} size={30} color={MyColors.iconos}/>
