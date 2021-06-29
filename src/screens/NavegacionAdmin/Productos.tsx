@@ -1,13 +1,13 @@
 import React,{Component} from "react";
 import { View,Text,StyleSheet } from "react-native";
-import MyColors from "../color/MyColors";
-class Order extends Component
+import MyColors from "../../color/MyColors";
+class Productos extends Component
 {
     render()
     {
         return <View style={styles.container}> 
             <Text>
-                pantalla de ordenes
+                pantalla de Productos
             </Text>
         </View>
     }
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
         flex:1
     }
 });
-export default Order;
+export default Productos;

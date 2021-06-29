@@ -18,7 +18,13 @@ class App extends Component<any,any>
   }
   render(){
     return  <NavigationContainer >
-                <Stack.Navigator >
+                <Stack.Navigator 
+                 screenOptions={{
+                   /* cardStyle:{
+                     backgroundColor:'red'
+                   } */
+                 }}
+                >
                   
                   <Stack.Screen  name="LOGIN" component={Main}/>
                   <Stack.Screen name='HOME' component={Saludo}></Stack.Screen>
