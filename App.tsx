@@ -1,47 +1,79 @@
 //import { Component } from "react";
-import React,{Component} from "react";
+import React,{Component, useContext} from "react";
 import {View,Text,StyleSheet,TouchableHighlight} from "react-native"
 import MyColors from "./src/color/MyColors";
 import MySimpleButton from "./src/utilComponents/MySimpleButton";
 import vectorIcons from "react-native-vector-icons/FontAwesome"
 import { createStackNavigator } from '@react-navigation/stack';
-import Main from "./src/screens/Main";
+import Login from "./src/screens/Login";
 import { NavigationContainer } from "@react-navigation/native";
-import Saludo from "./src/screens/Home";
+import Home from "./src/screens/Home";
+import { AuthContext, AuthProvider } from "./src/context/AuthContext";
+import { LoadingScreen } from "./src/screens/LoadingScreen";
 const Stack = createStackNavigator();
 
-class App extends Component<any,any>
+const AppState=({children}:any)=>{
+  return(
+    <AuthProvider>
+      {console.log("este es el posible error :")}
+        {children}
+    </AuthProvider>
+  );
+};
+
+/* class App extends Component<any,any>
 {
   constructor(props:any)
   {
     super(props);
+    
   }
   render(){
+    const {authState}=useContext(AuthContext);
+    if(authState==='verificando')
+  {
+    console.log(authState);
+    return <LoadingScreen></LoadingScreen>
+  }
     return  <NavigationContainer >
+                <AppState>
                 <Stack.Navigator 
                  screenOptions={{
-                   /* cardStyle:{
-                     backgroundColor:'red'
-                   } */
+                   
                  }}
                 >
                   
-                  <Stack.Screen  name="LOGIN" component={Main}/>
-                  <Stack.Screen name='HOME' component={Saludo}></Stack.Screen>
+                  <Stack.Screen  name="LOGIN" component={Login}/>
+                  <Stack.Screen name='HOME' component={Home}></Stack.Screen>
                   
                 </Stack.Navigator>
-                
+                </AppState>
               </NavigationContainer>
-              
-            
-            
-
-    {/* <View style={styles.mainContainter}>
-      <MySimpleButton icoName="user" title="Vendedor" onPress={()=>{this.onClickButton()}}></MySimpleButton>
-      <MySimpleButton icoName="user-md" title="Admin" onPress={()=>{this.onClickButton()}}></MySimpleButton>
-      
-    </View> */}
   }
+} */
+export const App=()=>{
+          const {authState}=useContext(AuthContext);
+          if(authState==='autenticado')
+          {
+              console.log("este es el authstate: "+authState);
+              return <LoadingScreen></LoadingScreen>
+          }
+
+    return  <NavigationContainer >
+                <AppState>
+                <Stack.Navigator 
+                 screenOptions={{
+                   
+                 }}
+                >
+                  
+                  <Stack.Screen  name="LOGIN" component={Login}/>
+                  <Stack.Screen name='HOME' component={Home}></Stack.Screen>
+                  
+                </Stack.Navigator>
+                </AppState>
+              </NavigationContainer>
+
 }
 const styles = StyleSheet.create({
   mainContainter:{

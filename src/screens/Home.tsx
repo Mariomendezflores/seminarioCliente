@@ -19,10 +19,6 @@ class Home extends Component<any,any>
     {
         super(props);
     }
-    componentDidMount()
-    {
-        console.log(this.props);
-    }
     goLogin()
     {   
       this.props.navigation.navigate("LOGIN");

@@ -3,6 +3,7 @@ import { View,Text } from "react-native";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Productos from "./Productos";
 import Usuarios from "./Usuarios";
+import { Cuenta } from "./Cuenta";
 const Tab = createMaterialTopTabNavigator();
 class GestionAdmin extends Component
 {
@@ -13,6 +14,7 @@ class GestionAdmin extends Component
         >
         <Tab.Screen name="Productos" component={Productos} />
         <Tab.Screen name="Usuarios" component={Usuarios} />
+        <Tab.Screen name="Cuenta" component={Cuenta} />
       </Tab.Navigator>
     }
 }

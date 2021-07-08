@@ -1,7 +1,9 @@
 import React,{Component} from "react";
 import {View,Text,TouchableHighlight,StyleSheet} from "react-native"
 import MyColors from "../color/MyColors";
-import Icon from "react-native-vector-icons/FontAwesome"
+import Icon from "react-native-vector-icons/Entypo"
+//import Icon from "react-native-vector-icons/AntDesign"
+import vectorIcons from "react-native-vector-icons/Entypo"
  
 interface MyProps{
     title:string,
@@ -38,7 +40,8 @@ const styles = StyleSheet.create({
         padding:10,
         borderRadius:10,
         elevation:10,
-        marginBottom:10
+        marginBottom:10,
+        marginTop:10
       },
       textStyle:{
         fontSize:20,
