@@ -12,16 +12,8 @@ import { AuthContext, AuthProvider } from "./src/context/AuthContext";
 import { LoadingScreen } from "./src/screens/LoadingScreen";
 const Stack = createStackNavigator();
 
-const AppState=({children}:any)=>{
-  return(
-    <AuthProvider>
-      {console.log("este es el posible error :")}
-        {children}
-    </AuthProvider>
-  );
-};
 
-/* class App extends Component<any,any>
+class App extends Component<any,any>
 {
   constructor(props:any)
   {
@@ -29,14 +21,9 @@ const AppState=({children}:any)=>{
     
   }
   render(){
-    const {authState}=useContext(AuthContext);
-    if(authState==='verificando')
-  {
-    console.log(authState);
-    return <LoadingScreen></LoadingScreen>
-  }
+    
     return  <NavigationContainer >
-                <AppState>
+                
                 <Stack.Navigator 
                  screenOptions={{
                    
@@ -47,34 +34,10 @@ const AppState=({children}:any)=>{
                   <Stack.Screen name='HOME' component={Home}></Stack.Screen>
                   
                 </Stack.Navigator>
-                </AppState>
+                
               </NavigationContainer>
   }
-} */
-export const App=()=>{
-          const {authState}=useContext(AuthContext);
-          if(authState==='autenticado')
-          {
-              console.log("este es el authstate: "+authState);
-              return <LoadingScreen></LoadingScreen>
-          }
-
-    return  <NavigationContainer >
-                <AppState>
-                <Stack.Navigator 
-                 screenOptions={{
-                   
-                 }}
-                >
-                  
-                  <Stack.Screen  name="LOGIN" component={Login}/>
-                  <Stack.Screen name='HOME' component={Home}></Stack.Screen>
-                  
-                </Stack.Navigator>
-                </AppState>
-              </NavigationContainer>
-
-}
+} 
 const styles = StyleSheet.create({
   mainContainter:{
     alignItems:"center",

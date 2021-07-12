@@ -38,58 +38,8 @@ interface Props extends StackScreenProps<any,any>
 {
 
 }
-export const Login = ({navigation}:Props)=>{
-  const {singIn,authState,errorMessage,removeError}=useContext(AuthContext)
-  
-
-  
-  useEffect(()=>{
-      
-    if(authState==='autenticado')
-        navigation.replace("HOME");
-    
-   },[authState]);
-  useEffect(()=>{
-      if(errorMessage.length===0)return;
-      Alert.alert('Datos incorrectos',errorMessage,
-      [
-        {
-          text:"Aceptar",
-          onPress:removeError
-        }
-      ]
-      );
-  },[errorMessage]);
-  const onLogin = async()=>{
-      //navigation.replace("HOME");
-      
-      //console.log({correo,password});
-      
-      console.log("este es el authState de Login.tsx: "+authState);
-      
-      Keyboard.dismiss();
-      
-  };
-  if(authState==='autenticado')
-          {
-              console.log("este es authState de login.tsx G  :"+authState);
-              return <LoadingScreen></LoadingScreen>
-          }
-    return(
-      <View style={styles.mainContainter}>
-                
-                <TextInput style={styles.inputStyle} 
-                placeholder="Usuario"
-                 
-                />
-                <TextInput style={styles.inputStyle} placeholder="Contraseña" secureTextEntry
-                 
-                />
-                <MySimpleButton icoName="login" title="Login" inClick={()=>{onLogin()}}></MySimpleButton>
-            </View>
-    );
-}     
-/* class Login extends Component<any,any>
+     
+class Login extends Component<any,any>
 {
   
     constructor(props:any)
@@ -120,7 +70,7 @@ export const Login = ({navigation}:Props)=>{
                 <MySimpleButton icoName="login" title="Login" inClick={()=>{this.goToHome()}}></MySimpleButton>
             </View> 
     }
-} */
+}
 
 const styles = StyleSheet.create({
     mainContainter:{

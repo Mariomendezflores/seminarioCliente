@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import ClientesRegulares from "./CLientes/ClientesRegulares";
 import ClientesPotenciales from "./CLientes/ClientesPotenciales";
 import AgendaNegociacion from "./CLientes/AgendaNegociacion";
+import NavigationCliente from "./CLientes/NavigationCliente";
 const Tab = createMaterialTopTabNavigator();
 class Clients extends Component
 {
@@ -12,7 +13,7 @@ class Clients extends Component
         return <Tab.Navigator 
         
         >
-        <Tab.Screen name="Clientes Regulares" component={ClientesRegulares} />
+        <Tab.Screen name="Clientes Regulares" component={NavigationCliente} />
         <Tab.Screen name="Clientes Potenciales" component={ClientesPotenciales} />
         <Tab.Screen name="Agenda De Negociacion" component={AgendaNegociacion} />
       </Tab.Navigator>
