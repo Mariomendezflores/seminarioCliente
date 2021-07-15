@@ -7,9 +7,10 @@ import DetalleCliente from "./DetalleCliente";
 import ClientesRegulares from "./ClientesRegulares";
 import { NavigationContainer } from '@react-navigation/native';
 import ClienteNuevoPotencial from "./NuevoClientePotencial";
+import ClientesPotenciales from "./ClientesPotenciales";
 const Stack = createStackNavigator();
 
-class NavigationCliente extends Component
+class NavigationClientePotencial extends Component
 {
     render()
     {
@@ -19,10 +20,8 @@ class NavigationCliente extends Component
                     
                     }}
                 >
-                    <Stack.Screen  name="Clientes Regulares" component={ClientesRegulares} options={{headerShown: false}}/>
-                    <Stack.Screen  name="Nuevo Cliente" component={ClienteNuevo}/>
+                    <Stack.Screen  name="Clientes Potenciales" component={ClientesPotenciales} options={{headerShown: false}}/>
                     <Stack.Screen  name="Nuevo Cliente Potencial" component={ClienteNuevoPotencial}/>
-                    <Stack.Screen name='Detalle Cliente' component={DetalleCliente}></Stack.Screen>
                     
                 </Stack.Navigator>
        </NavigationContainer>
@@ -35,4 +34,4 @@ const styles = StyleSheet.create({
         flex:1
     }
 });
-export default NavigationCliente;
+export default NavigationClientePotencial;

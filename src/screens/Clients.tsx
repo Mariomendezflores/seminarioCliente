@@ -5,6 +5,7 @@ import ClientesRegulares from "./CLientes/ClientesRegulares";
 import ClientesPotenciales from "./CLientes/ClientesPotenciales";
 import AgendaNegociacion from "./CLientes/AgendaNegociacion";
 import NavigationCliente from "./CLientes/NavigationCliente";
+import NavigationClientePotencial from "./CLientes/NavigationClientesPotenciales";
 const Tab = createMaterialTopTabNavigator();
 class Clients extends Component
 {
@@ -14,7 +15,7 @@ class Clients extends Component
         
         >
         <Tab.Screen name="Clientes Regulares" component={NavigationCliente} />
-        <Tab.Screen name="Clientes Potenciales" component={ClientesPotenciales} />
+        <Tab.Screen name="Clientes Potenciales" component={NavigationClientePotencial} />
         <Tab.Screen name="Agenda De Negociacion" component={AgendaNegociacion} />
       </Tab.Navigator>
     }

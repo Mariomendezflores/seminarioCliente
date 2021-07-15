@@ -23,7 +23,7 @@ interface MyState{
             pathavatar?:string,
             uriavatar?:string
 }
-class ClienteNuevo extends Component<any,MyState>
+class ClienteNuevoPotencial extends Component<any,MyState>
 {
     constructor(props:any)
     {
@@ -37,7 +37,7 @@ class ClienteNuevo extends Component<any,MyState>
                 ci:'',
                 zona:'',
                 calleNumero:'',
-                clienteRegular:true
+                clientePotencial:true
         }
     }
     async sendData()
@@ -46,8 +46,7 @@ class ClienteNuevo extends Component<any,MyState>
         var url=MyUrls.apiUrl+'/api/clientes/'+dataVendedor1._id;
         console.log(url);
         const newCliente=await axios.post(url,this.state);
-        console.log("respuesta del servidor es: ",newCliente);
-        this.props.navigation.push('Clientes Regulares');
+        this.props.navigation.push('Clientes Potenciales');
     }
     render()
     {
@@ -178,4 +177,4 @@ const styles = StyleSheet.create({
         backgroundColor:MyColors.backgroundButtons
     }
 });
-export default ClienteNuevo;
+export default ClienteNuevoPotencial;
