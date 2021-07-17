@@ -76,14 +76,14 @@ class ListaProductos extends Component<any,Mystate>
                 keyExtractor={(item)=>item._id}
                 />
         </View >
-       {/*  <FAB
+        <FAB
             style={styles.fab}
             small={false}
             icon="plus"
             onPress={() => {
-                this.props.navigation.push('Nuevo Cliente');
+                this.props.navigation.push('Nuevo Producto');
             }}
-  /> */}
+  />
     </View>
     }
 }
