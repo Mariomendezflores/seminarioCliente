@@ -4,17 +4,18 @@ import MyColors from "../../color/MyColors";
 import axios from "axios";
 import { Appbar,List,Avatar,FAB } from 'react-native-paper';
 import MyUrls from "../../api/ApiUrls";
-import { ClienteApiResponse, SimpleCliente } from "../../interfaces/apiResponses";
+//import { ClienteApiResponse, SimpleCliente } from "../../interfaces/apiResponses";
+import { IproductoApiResponse,ISimpleProducto } from "../../interfaces/apiResponses";
 import { Item } from "react-native-paper/lib/typescript/components/List/List";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 interface Mystate{
-    clienteData:Array<SimpleCliente>
+    clienteData:Array<ISimpleProducto>
 }
 interface imagenData{
-    item:SimpleCliente
+    item:ISimpleProducto
 }
-class ClientesRegulares extends Component<any,Mystate>
+class ListaProductos extends Component<any,Mystate>
 {
     constructor(props:any)
     {
@@ -25,7 +26,7 @@ class ClientesRegulares extends Component<any,Mystate>
     }
     async componentDidMount()
     {
-        const result:Array<SimpleCliente> = await axios.get<ClienteApiResponse>(MyUrls.apiUrl+'/api/clientesRegulares').then((item)=>{
+        const result:Array<ISimpleProducto> = await axios.get<IproductoApiResponse>(MyUrls.apiUrl+'/api/productos').then((item)=>{
             return item.data.serverResponse
         });
         this.setState({
@@ -34,22 +35,23 @@ class ClientesRegulares extends Component<any,Mystate>
     }
     listIcon(param:imagenData)
     {
-        var item:SimpleCliente=param.item;
-        if(item.uriavatar!=null)
+        var item:ISimpleProducto=param.item;
+        if(item.uriImagen!=null)
         {
-            var url = MyUrls.apiUrl+item.uriavatar;
+            var url = MyUrls.apiUrl+item.uriImagen;
+            let dataPrecio="costo por unidad  "+item.precio+" bs.";
             //console.log(url);
             return <List.Item
-                    title={item.nombre}
-                    description={item.apellidos}
+                    title={item.productoName}
+                    description={dataPrecio}
                     left={props => <Avatar.Image size={48} source={{uri:url}} />}
                 />
         }
         else
         {
             return <List.Item
-            title={item.nombre}
-            description={item.apellidos}
+            title={item.productoName}
+            description={item.precio}
             left={props => <List.Icon {...props} icon="incognito" />}
           />
         }
@@ -74,14 +76,14 @@ class ClientesRegulares extends Component<any,Mystate>
                 keyExtractor={(item)=>item._id}
                 />
         </View >
-        <FAB
+       {/*  <FAB
             style={styles.fab}
             small={false}
             icon="plus"
             onPress={() => {
                 this.props.navigation.push('Nuevo Cliente');
             }}
-  />
+  /> */}
     </View>
     }
 }
@@ -105,4 +107,4 @@ const styles = StyleSheet.create({
         borderRadius:10
     }
 });
-export default ClientesRegulares;
+export default ListaProductos;

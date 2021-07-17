@@ -21,3 +21,16 @@ export interface SimpleCliente{
 export interface ClienteApiResponse{
     serverResponse:Array<SimpleCliente>
 };
+export interface ISimpleProducto {
+    _id:string,
+    productoName: string,
+    registerdate?: Date,
+    precio:string,
+    stock:string,
+    disponible?:boolean,
+    uriImagen?: string,
+    pathImagen?: string,
+  }
+  export interface IproductoApiResponse{
+    serverResponse:Array<ISimpleProducto>
+};
