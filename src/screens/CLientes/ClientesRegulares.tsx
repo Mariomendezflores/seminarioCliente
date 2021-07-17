@@ -57,12 +57,12 @@ class ClientesRegulares extends Component<any,Mystate>
     render()
     {
         return <View style={styles.container}>
-            <Appbar.Header>
+            {/* <Appbar.Header>
                 <Appbar.BackAction onPress={()=>{}} />
                 <Appbar.Content title="Title" subtitle="Subtitle" />
                 <Appbar.Action icon="magnify" onPress={()=>{}} />
                 <Appbar.Action icon="dots-vertical" onPress={()=>{}} />
-            </Appbar.Header>
+            </Appbar.Header> */}
         <View style={styles.itemContainer}>
             <FlatList
                 style={styles.itemContainer}

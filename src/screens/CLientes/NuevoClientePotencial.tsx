@@ -150,10 +150,12 @@ class ClienteNuevoPotencial extends Component<any,MyState>
                     }
             />
 
-            <Button icon="camera" mode="contained" onPress={() => {
+            <Button icon="camera" mode="contained" 
+                color={MyColors.backgroundButtons}
+            onPress={() => {
                 this.sendData();
             }}>
-                Press me
+                Guardar Cliente
             </Button>
 
         </View>
